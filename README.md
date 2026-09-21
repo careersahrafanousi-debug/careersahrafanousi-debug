@@ -11,11 +11,16 @@ Open to remote analyst and BI roles.
 
 ### Portfolio
 
-Five end-to-end projects on **fully synthetic** healthcare data. Each one ships
-runnable code, a data-quality gate that excludes bad records instead of quietly
-fixing them, SQL analysis, a live dashboard, and the business-analysis documents
-that make a finding implementable — charter, requirements, process maps, KPI
-definitions, UAT test cases.
+Eight end-to-end projects on **fully synthetic** data — five in healthcare
+operations, three deliberately outside it. Each one ships runnable code, a
+data-quality gate that excludes bad records instead of quietly fixing them, SQL
+analysis, a live dashboard, and the business-analysis documents that make a
+finding implementable — charter, requirements, process maps, KPI definitions,
+UAT test cases.
+
+**[See all eight on one page →](https://careersahrafanousi-debug.github.io/)**
+
+### Healthcare operations
 
 #### [Appeals Friction Radar](https://github.com/careersahrafanousi-debug/appeals-friction-radar)
 *Where does an appeal actually lose its days?*
@@ -54,16 +59,48 @@ No-show rate is **5.3% with a reminder and 15.7% without**. Found **507 refillab
 
 ---
 
+### Beyond healthcare
+
+The same method applied to three domains I do not work in, because it is a
+method rather than a domain: establish what the data can actually support,
+compare against the process already in place, and say where the answer runs out.
+
+#### [Subscription Churn and Retention](https://github.com/careersahrafanousi-debug/subscription-churn-retention)
+*Which acquisition channel keeps customers, and is that the channel's fault?*
+
+Month-6 retention ranged from **51.2% (Paid Social) to 78.3% (Member Referral)** — a 27-point spread that looked like a channel-quality story. Standardising on discount mix narrows it to **20.3 points**, so about a quarter of the gap is a discounting decision rather than a channel. 9,000 customers, 67,784 ledger rows, 24 months; GRR 89.7%, NRR 96.2%.
+
+[Live dashboard](https://careersahrafanousi-debug.github.io/subscription-churn-retention/dashboard/) · [Code and docs](https://github.com/careersahrafanousi-debug/subscription-churn-retention)
+
+#### [Funnel Conversion and Experiment Readout](https://github.com/careersahrafanousi-debug/funnel-experiment-readout)
+*The A/B test won by 4.28 points. Should it ship?*
+
+Ship it to desktop, not to mobile — and not because mobile lost. The **+4.28pp** headline (95% CI 2.35 to 6.22, p < 0.001) is a **+8.81pp desktop win** diluted by a mobile result of +0.43pp that was never powered to detect less than 4.09pp. Mobile is **inconclusive, not null**, which is a different decision. The sample-ratio check passes, no guardrail is breached, and a peek would have called significance on **27 of 28 days**.
+
+[Live dashboard](https://careersahrafanousi-debug.github.io/funnel-experiment-readout/dashboard/) · [Code and docs](https://github.com/careersahrafanousi-debug/funnel-experiment-readout)
+
+#### [Chargeback Screening](https://github.com/careersahrafanousi-debug/chargeback-screening)
+*The chargeback rate looks like it fell 74%. Did it?*
+
+No — disputes arrive up to 120 days late, so recent weeks only look clean. Mature weeks average **1.47%** against the **0.38%** the current report shows. Once label maturity is respected, a ranked queue catches **123 chargebacks against the live rule engine's 67** at identical analyst cost (McNemar χ² 29.66, **p < 0.001**), and one of the five live rules turns out to have a lift of 1.04 — no better than random. The threshold, though, should not move: bootstrapping puts the cost optimum anywhere between 1.75% and 7.50%. 226,585 transactions; logistic regression, ROC AUC, average precision, McNemar and the bootstrap all implemented in NumPy so every statistic can be read as code.
+
+[Live dashboard](https://careersahrafanousi-debug.github.io/chargeback-screening/dashboard/) · [Code and docs](https://github.com/careersahrafanousi-debug/chargeback-screening)
+
+---
+
 ### How the projects are built
 
-Every repo runs the same way, from a clean clone:
+Every repo runs the same way from a clean clone. Script names differ slightly where
+a project needs an extra step — reconciliation, experiment statistics, a model fit —
+but the shape is always the same:
 
 ```bash
-python src/generate_data.py    # synthetic source files
-python src/dq_checks.py        # data-quality gate
-python src/load_sqlite.py      # star schema
-python src/build_dashboard.py  # interactive HTML
-python src/build_bi_assets.py  # Excel, Tableau, Power BI, charts
+python src/generate_data.py     # synthetic source files, fixed seed
+python src/clean_validate.py    # data-quality gate; failures excluded, not repaired
+python src/load_sqlite.py       # star schema
+python src/model.py             # statistics, written back as queryable tables
+python src/build_dashboard.py   # interactive HTML
+python src/build_bi_assets.py   # Excel, Tableau, Power BI, charts
 ```
 
 The last step is the part worth a conversation. One file of SQL
@@ -83,17 +120,18 @@ and the Power BI TMDL are committed as text instead.
 ### Tools
 
 **SQL** — window functions, CTEs, star-schema modeling, reconciliation across systems
+**Statistics** — hypothesis testing (z, χ², McNemar), confidence intervals, bootstrap, power and minimum detectable effect, logistic regression and calibration
 **Power BI** — DAX measures, TMDL semantic models
 **Tableau** · **Excel** — pivot tables, native chart objects via openpyxl
-**Python** — pandas, matplotlib, openpyxl, sqlite3
+**Python** — pandas, NumPy, matplotlib, openpyxl, sqlite3
 **Business analysis** — requirements elicitation, current/future-state process maps, KPI catalogs, UAT
 
 ---
 
 ### A note on the data
 
-All five projects use fully synthetic data generated by the scripts in each
-repository. They do not use employer data, patient information, protected health
+All eight projects use fully synthetic data generated from a fixed seed by the
+scripts in each repository. They do not use employer data, patient information, protected health
 information, or confidential business information. The scenarios are modeled on
 real operational patterns; the records are not real.
 
