@@ -17,13 +17,40 @@ fixing them, SQL analysis, a live dashboard, and the business-analysis documents
 that make a finding implementable — charter, requirements, process maps, KPI
 definitions, UAT test cases.
 
-| Project | What it found | Live dashboard |
-| --- | --- | --- |
-| **[appeals-friction-radar](https://github.com/careersahrafanousi-debug/appeals-friction-radar)** | Urgent appeals take 15.5 days against a 7-day target while standard appeals take 14.8 against 30. SLA compliance collapses to 16.5% on the queue that matters most. | [Open](https://careersahrafanousi-debug.github.io/appeals-friction-radar/dashboard/) |
-| **[denial-prevention-simulator](https://github.com/careersahrafanousi-debug/denial-prevention-simulator)** | Of $5.42M denied across 11,967 claims, $4.48M (82.7% of denied dollars) traces to five preventable causes. Built a pre-submission risk queue on top of it. | [Open](https://careersahrafanousi-debug.github.io/denial-prevention-simulator/dashboard/) |
-| **[case-assignment-fairness](https://github.com/careersahrafanousi-debug/case-assignment-fairness)** | Team SLA ranged 25.9%–84.2%. Routing explained it, not analyst performance — 14% of cases (Authorization Review, 79h against a 48h target) produced 41% of all lateness. This reversed the stakeholder's hypothesis. | [Open](https://careersahrafanousi-debug.github.io/case-assignment-fairness/dashboard/) |
-| **[kpi-trust-ledger](https://github.com/careersahrafanousi-debug/kpi-trust-ledger)** | The same six KPIs disagreed across three source systems. Backlog alone reported as 423 / 611 / 509 / 211. Certified 2 of 6 for leadership use and documented why the other four failed. | [Open](https://careersahrafanousi-debug.github.io/kpi-trust-ledger/dashboard/) |
-| **[capacity-to-deadline-optimizer](https://github.com/careersahrafanousi-debug/capacity-to-deadline-optimizer)** | No-show rate is 5.3% with a reminder and 15.7% without. Found 507 refillable cancelled slots and ranked 1,786 waitlisted patients against them. | [Open](https://careersahrafanousi-debug.github.io/capacity-to-deadline-optimizer/dashboard/) |
+#### [Appeals Friction Radar](https://github.com/careersahrafanousi-debug/appeals-friction-radar)
+*Where does an appeal actually lose its days?*
+
+Urgent appeals take **15.5 days against a 7-day target** while standard appeals take 14.8 against 30. The queue with the tightest deadline is the one that misses it — SLA compliance collapses to **16.5%**. Built on 3,966 appeals and 35,443 workflow events, using SQL window functions to measure stage dwell time.
+
+[Live dashboard](https://careersahrafanousi-debug.github.io/appeals-friction-radar/dashboard/) · [Code and docs](https://github.com/careersahrafanousi-debug/appeals-friction-radar)
+
+#### [Denial Prevention Simulator](https://github.com/careersahrafanousi-debug/denial-prevention-simulator)
+*Which denials were preventable before the claim went out?*
+
+Of **$5.42M denied** across 11,967 claims, **$4.48M — 82.7% of denied dollars** — traces to five causes that are checkable at submission. Turned that into a pre-submission risk queue that scores unsubmitted claims before they leave.
+
+[Live dashboard](https://careersahrafanousi-debug.github.io/denial-prevention-simulator/dashboard/) · [Code and docs](https://github.com/careersahrafanousi-debug/denial-prevention-simulator)
+
+#### [Case Assignment Fairness](https://github.com/careersahrafanousi-debug/case-assignment-fairness)
+*Are some teams slower, or are they handed harder work?*
+
+Team SLA compliance ranged from **25.9% to 84.2%**, which looked like a performance gap. It was routing: 14% of cases — Authorization Review, averaging 79 hours against a 48-hour target — produced **41% of all lateness**. This reversed the stakeholder's starting hypothesis, across 15,908 cases and 35 analysts.
+
+[Live dashboard](https://careersahrafanousi-debug.github.io/case-assignment-fairness/dashboard/) · [Code and docs](https://github.com/careersahrafanousi-debug/case-assignment-fairness)
+
+#### [KPI Trust Ledger](https://github.com/careersahrafanousi-debug/kpi-trust-ledger)
+*Why does the same KPI have four different values?*
+
+Six appeals KPIs reconciled across three source systems. Backlog alone reported as **423 / 611 / 509 / 211** depending on which system you asked. Attributed every variance, then **certified 2 of 6** for leadership use and documented exactly why the other four could not be.
+
+[Live dashboard](https://careersahrafanousi-debug.github.io/kpi-trust-ledger/dashboard/) · [Code and docs](https://github.com/careersahrafanousi-debug/kpi-trust-ledger)
+
+#### [Capacity-to-Deadline Optimizer](https://github.com/careersahrafanousi-debug/capacity-to-deadline-optimizer)
+*Can cancelled slots be refilled from the waitlist in time?*
+
+No-show rate is **5.3% with a reminder and 15.7% without**. Found **507 refillable** cancelled slots and ranked 1,786 waitlisted patients against them with a match score, across 13,951 appointments and 22 providers.
+
+[Live dashboard](https://careersahrafanousi-debug.github.io/capacity-to-deadline-optimizer/dashboard/) · [Code and docs](https://github.com/careersahrafanousi-debug/capacity-to-deadline-optimizer)
 
 ---
 
