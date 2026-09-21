@@ -4,7 +4,7 @@ Healthcare appeals analyst in Texas. I work on the operations side of a payer â€
 appeals intake through adjudication â€” and I build the SQL and reporting that
 operations leaders use to decide where to put people and money.
 
-Finishing an M.S. in Business Analytics and AI at Lamar University (May 2027).
+Finishing an M.S. in Business Analytics and AI (May 2027).
 Open to remote analyst and BI roles.
 
 ---
