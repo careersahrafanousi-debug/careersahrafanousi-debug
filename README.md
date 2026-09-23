@@ -11,14 +11,14 @@ Open to remote analyst and BI roles.
 
 ### Portfolio
 
-Eight end-to-end projects on **fully synthetic** data — five in healthcare
-operations, three deliberately outside it. Each one ships runnable code, a
+Nine end-to-end projects on **fully synthetic** data — five in healthcare
+operations, four deliberately outside it. Each one ships runnable code, a
 data-quality gate that excludes bad records instead of quietly fixing them, SQL
 analysis, a live dashboard, and the business-analysis documents that make a
 finding implementable — charter, requirements, process maps, KPI definitions,
 UAT test cases.
 
-**[See all eight on one page →](https://careersahrafanousi-debug.github.io/)**
+**[See all nine on one page →](https://careersahrafanousi-debug.github.io/)**
 
 ### Healthcare operations
 
@@ -61,7 +61,7 @@ No-show rate is **5.3% with a reminder and 15.7% without**. Found **507 refillab
 
 ### Beyond healthcare
 
-The same method applied to three domains I do not work in, because it is a
+The same method applied to four domains I do not work in, because it is a
 method rather than a domain: establish what the data can actually support,
 compare against the process already in place, and say where the answer runs out.
 
@@ -85,6 +85,13 @@ Ship it to desktop, not to mobile — and not because mobile lost. The **+4.28pp
 No — disputes arrive up to 120 days late, so recent weeks only look clean. Mature weeks average **1.47%** against the **0.38%** the current report shows. Once label maturity is respected, a ranked queue catches **123 chargebacks against the live rule engine's 67** at identical analyst cost (McNemar χ² 29.66, **p < 0.001**), and one of the five live rules turns out to have a lift of 1.04 — no better than random. The threshold, though, should not move: bootstrapping puts the cost optimum anywhere between 1.75% and 7.50%. 226,585 transactions; logistic regression, ROC AUC, average precision, McNemar and the bootstrap all implemented in NumPy so every statistic can be read as code.
 
 [Live dashboard](https://careersahrafanousi-debug.github.io/chargeback-screening/dashboard/) · [Code and docs](https://github.com/careersahrafanousi-debug/chargeback-screening)
+
+#### [Store P&L Variance](https://github.com/careersahrafanousi-debug/store-pnl-variance)
+*Sales beat plan by 2.18%. Why did four-wall profit miss by $371k?*
+
+A price-volume-mix bridge for a fictional twelve-store coffee chain that **reconciles to the cent** in all 96 store-months — the build stops if it does not. Deeper discounting (**−$206,939**), a low-margin new product (**−$115,469** mix) and unproductive labor hours (**−$155,613**) more than consumed a **+$291,230** volume gain. Three stores lose money for three different reasons: Midtown is a schedule (positive at standard labor), Harbor Point is traffic (needs 24.1% more to break even), and Eastgate is only allocated overhead — closing it would **cut company profit by $144,817**. A staggered price rollout, read with difference-in-differences, raised net sales **2.57%** (95% CI 1.69 to 3.46, exact permutation p = 0.0022).
+
+[Live dashboard](https://careersahrafanousi-debug.github.io/store-pnl-variance/dashboard/) · [Code and docs](https://github.com/careersahrafanousi-debug/store-pnl-variance)
 
 ---
 
@@ -130,7 +137,7 @@ and the Power BI TMDL are committed as text instead.
 
 ### A note on the data
 
-All eight projects use fully synthetic data generated from a fixed seed by the
+All nine projects use fully synthetic data generated from a fixed seed by the
 scripts in each repository. They do not use employer data, patient information, protected health
 information, or confidential business information. The scenarios are modeled on
 real operational patterns; the records are not real.
